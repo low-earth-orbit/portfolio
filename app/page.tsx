@@ -11,9 +11,10 @@ export default function Home() {
       <AppShell.Header withBorder={false} style={{ position: "static" }}>
         <Header />
       </AppShell.Header>
+      <HeroBanner />
 
-      <AppShell.Main>
-        <HeroBanner />
+      <AppShell.Main style={{ minHeight: "unset" }}>
+        <p>This is AppShell.Main</p>
       </AppShell.Main>
 
       <AppShell.Footer withBorder={false} style={{ position: "static" }}>
