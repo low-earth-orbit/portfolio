@@ -1,6 +1,7 @@
 import { Button, Container, Group, Text } from "@mantine/core";
 import { GithubIcon } from "@mantinex/dev-icons";
 import classes from "./HeroBanner.module.css";
+import { IconBrandLinkedin } from "@tabler/icons-react";
 
 export default function HeroBanner() {
   return (
@@ -25,18 +26,25 @@ export default function HeroBanner() {
 
         <Group className={classes.controls}>
           <Button
-            size="xl"
+            component="a"
+            href="https://www.linkedin.com/in/leo-hong/"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="lg"
             className={classes.control}
             variant="gradient"
             gradient={{ from: "blue", to: "cyan" }}
+            leftSection={<IconBrandLinkedin size={20} />}
           >
-            Get started
+            LinkedIn
           </Button>
 
           <Button
             component="a"
-            href="https://github.com/mantinedev/mantine"
-            size="xl"
+            href="https://github.com/low-earth-orbit"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="lg"
             variant="default"
             className={classes.control}
             leftSection={<GithubIcon size={20} />}

@@ -1,4 +1,4 @@
-import { Group, Burger, Menu } from "@mantine/core";
+import { Group, Burger, Menu, Text } from "@mantine/core";
 import classes from "./Header.module.css";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -8,10 +8,9 @@ import {
 } from "@tabler/icons-react";
 
 const links = [
-  { link: "/about", label: "Features" },
-  { link: "/pricing", label: "Pricing" },
-  { link: "/learn", label: "Learn" },
-  { link: "/community", label: "Community" },
+  { link: "/about", label: "About" },
+  { link: "/my-work", label: "My Work" },
+  { link: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -20,7 +19,7 @@ export default function Header() {
   const items = links.map((link) => (
     <a
       key={link.label}
-      href={link.link}
+      // href={link.link}
       className={classes.link}
       onClick={(event) => event.preventDefault()}
     >
@@ -31,9 +30,6 @@ export default function Header() {
   return (
     <header className={classes.header}>
       <div className={classes.inner}>
-        <Group>
-          <div>🍁 Leo</div>
-        </Group>
         <Group>
           <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">
             {items}

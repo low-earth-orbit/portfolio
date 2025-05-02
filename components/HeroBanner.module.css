@@ -16,6 +16,11 @@
     url(https://images.unsplash.com/photo-1745860973840-f81898cab7b0?q=80&w=3135&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80);
   padding-top: calc(var(--mantine-spacing-xl) * 3);
   padding-bottom: calc(var(--mantine-spacing-xl) * 3);
+  border-radius: var(--mantine-radius-xl);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    border-radius: 0;
+  }
 }
 
 .inner {
