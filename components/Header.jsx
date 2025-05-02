@@ -1,11 +1,5 @@
-import { Group, Burger, Menu } from "@mantine/core";
+import { Group } from "@mantine/core";
 import classes from "./Header.module.css";
-import { useDisclosure } from "@mantine/hooks";
-import {
-  IconPhoto,
-  IconMessageCircle,
-  IconMoodSmileBeam,
-} from "@tabler/icons-react";
 
 const links = [
   { link: "/about", label: "About" },
@@ -14,8 +8,6 @@ const links = [
 ];
 
 export default function Header() {
-  const [opened, { toggle }] = useDisclosure();
-
   const items = links.map((link) => (
     <a
       key={link.label}
@@ -31,34 +23,10 @@ export default function Header() {
     <header className={classes.header}>
       <div className={classes.inner}>
         <Group>
-          <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">
+          <Group ml={50} gap={5} className={classes.links}>
             {items}
           </Group>
         </Group>
-
-        <Menu shadow="md" width={250} hiddenFrom="xs">
-          <Menu.Target>
-            <Burger opened={opened} onClick={toggle} size="sm" />
-          </Menu.Target>
-
-          <Menu.Dropdown>
-            <Menu.Item
-              leftSection={<IconMoodSmileBeam size={14} />}
-              onClick={toggle}
-            >
-              About
-            </Menu.Item>
-            <Menu.Item leftSection={<IconPhoto size={14} />} onClick={toggle}>
-              My Work
-            </Menu.Item>
-            <Menu.Item
-              leftSection={<IconMessageCircle size={14} />}
-              onClick={toggle}
-            >
-              Contact
-            </Menu.Item>
-          </Menu.Dropdown>
-        </Menu>
       </div>
     </header>
   );
