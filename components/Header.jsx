@@ -23,7 +23,7 @@ export default function Header() {
     <header className={classes.header}>
       <div className={classes.inner}>
         <Group>
-          <Group ml={50} gap={5} className={classes.links}>
+          <Group gap={5} className={classes.links}>
             {items}
           </Group>
         </Group>
