@@ -1,4 +1,4 @@
-import { Group, Burger, Menu, Text } from "@mantine/core";
+import { Group, Burger, Menu } from "@mantine/core";
 import classes from "./Header.module.css";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -36,7 +36,7 @@ export default function Header() {
           </Group>
         </Group>
 
-        <Menu shadow="md" width={250} hiddenFrom="sm">
+        <Menu shadow="md" width={250} hiddenFrom="xs">
           <Menu.Target>
             <Burger opened={opened} onClick={toggle} size="sm" />
           </Menu.Target>
