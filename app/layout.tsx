@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@mantine/core/styles.css";
+
+import { createTheme, MantineProvider } from "@mantine/core";
 
 export const metadata: Metadata = {
   title: "Leo Hong | Full-Stack Web Developer",
@@ -9,6 +11,8 @@ export const metadata: Metadata = {
   },
 };
 
+const theme = createTheme({});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
