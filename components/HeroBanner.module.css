@@ -46,11 +46,6 @@
   @media (max-width: $mantine-breakpoint-lg) {
     font-size: 64px;
   }
-
-  @media (max-width: $mantine-breakpoint-sm) {
-    font-size: 48px;
-    line-height: 1.2;
-  }
 }
 
 .description {
@@ -61,16 +56,8 @@
     font-size: 28px;
   }
 
-  @media (max-width: $mantine-breakpoint-md) {
-    font-size: 24px;
-  }
-
   @media (max-width: $mantine-breakpoint-sm) {
     font-size: 20px;
-  }
-
-  @media (max-width: $mantine-breakpoint-xs) {
-    font-size: 16px;
   }
 }
 
