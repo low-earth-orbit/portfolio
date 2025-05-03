@@ -50,14 +50,14 @@
 
 .description {
   margin-top: var(--mantine-spacing-xl);
-  font-size: 32px;
+  font-size: var(--mantine-font-size-xl);
 
   @media (max-width: $mantine-breakpoint-lg) {
-    font-size: 28px;
+    font-size: var(--mantine-font-size-lg);
   }
 
   @media (max-width: $mantine-breakpoint-sm) {
-    font-size: 20px;
+    font-size: var(--mantine-font-size-md);
   }
 }
 
