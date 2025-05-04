@@ -3,7 +3,7 @@ import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
 import "./globals.css";
 
-import { createTheme, MantineProvider, rem } from "@mantine/core";
+import { createTheme, MantineProvider } from "@mantine/core";
 
 export const metadata: Metadata = {
   title: "Leo Hong | Full-Stack Web Developer",
@@ -13,15 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-const theme = createTheme({
-  fontSizes: {
-    xs: rem(12),
-    sm: rem(16),
-    md: rem(20),
-    lg: rem(24),
-    xl: rem(32),
-  },
-});
+const theme = createTheme({});
 
 export default function RootLayout({
   children,
