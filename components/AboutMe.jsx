@@ -18,7 +18,7 @@ const groceries = [
     emoji: "🏃",
     value: "A first-generation immigrant",
     description:
-      "Born in the wild suburbs of southern China, I grew up with crop fields on rolling hills, rivers and waters, although I witnessed rapid urbanization. It wasn’t until much later in my adolescence that I ever imagined moving to another country. I miss the golden, miraculous years of openness and progress. When I moved to Canada, I didn’t think much about the future — I just wanted to explore, to wonder...",
+      "Born in the wild suburbs of southern China, I grew up with crop fields on rolling hills, rivers and waters, and witnessed rapid urbanization. It wasn’t until much later in my adolescence that I ever imagined moving to another country. I miss the golden, miraculous years of openness and progress. When I moved to Canada, I didn’t think much about the future — I just wanted to explore, to wonder...",
   },
   {
     emoji: "🎾",
