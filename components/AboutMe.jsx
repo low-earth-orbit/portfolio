@@ -1,4 +1,4 @@
-import classes from "./Intro.module.css";
+import classes from "./AboutMe.module.css";
 import { Accordion, Title, Text } from "@mantine/core";
 
 const groceries = [
