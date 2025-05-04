@@ -6,7 +6,7 @@ const groceries = [
     emoji: "🤟",
     value: "My tech stack",
     description:
-      "Technologies I use for web development include TypeScript/JavaScript, React, Redux, Next.js, Node.js/Express, Amazon Web Services, GraphQL, DynamoDB, PostgreSQL, and more. In addition to web development, I am currently learning include artificial intelligence, distributed systems, and cloud computing.",
+      "Technologies I use for web development include TypeScript/JavaScript, React, Redux, Next.js, Node.js/Express, Amazon Web Services, GraphQL, DynamoDB, PostgreSQL, and more. In addition to web development, I am currently learning artificial intelligence, distributed systems, and cloud computing.",
   },
   {
     emoji: "🚀",
