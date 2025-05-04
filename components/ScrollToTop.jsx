@@ -16,11 +16,9 @@ export default function ScrollToTop() {
               size="xl"
               radius="xl"
               aria-label="Back to top"
+              onClick={() => scrollTo({ y: 0 })}
             >
-              <IconArrowUp
-                style={transitionStyles}
-                onClick={() => scrollTo({ y: 0 })}
-              />
+              <IconArrowUp style={transitionStyles} />
             </ActionIcon>
           )}
         </Transition>
