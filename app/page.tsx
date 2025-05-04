@@ -4,7 +4,8 @@ import { AppShell } from "@mantine/core";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeroBanner from "../components/HeroBanner";
-import Intro from "../components/Intro";
+import Intro from "../components/AboutMe";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <HeroBanner />
 
       <Intro />
+      <Contact />
       <AppShell.Footer withBorder={false} style={{ position: "static" }}>
         <Footer />
       </AppShell.Footer>
