@@ -8,7 +8,7 @@ export default function HeroBanner() {
     <div className={classes.wrapper}>
       <Container size={700} className={classes.inner}>
         <h1 className={classes.title}>
-          Hello, I'm{" "}
+          Hello, I’m{" "}
           <Text
             component="span"
             variant="gradient"

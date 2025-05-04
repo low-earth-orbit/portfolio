@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import HeroBanner from "../components/HeroBanner";
 import Intro from "../components/AboutMe";
 import Contact from "../components/Contact";
-
+import ScrollToTop from "../components/ScrollToTop";
 export default function Home() {
   return (
     <AppShell header={{ height: 60 }} padding="md">
@@ -20,6 +20,8 @@ export default function Home() {
       <AppShell.Footer withBorder={false} style={{ position: "static" }}>
         <Footer />
       </AppShell.Footer>
+
+      <ScrollToTop />
     </AppShell>
   );
 }

@@ -6,7 +6,7 @@ const groceries = [
     emoji: "🤟",
     value: "My tech stack",
     description:
-      "Technologies I use for web development include TypeScript/JavaScript, React, Redux, Next.js, Node.js/Express, Amazon Web Services, GraphQL, DynamoDB, PostgreSQL, and more. In addition to web development, I am generally interested in the theory and practice of technology and software engineering. Topics I am currently learning include artificial intelligence, distributed systems, and cloud computing.",
+      "Technologies I use for web development include TypeScript/JavaScript, React, Redux, Next.js, Node.js/Express, Amazon Web Services, GraphQL, DynamoDB, PostgreSQL, and more. In addition to web development, I am currently learning include artificial intelligence, distributed systems, and cloud computing.",
   },
   {
     emoji: "🚀",
@@ -18,7 +18,7 @@ const groceries = [
     emoji: "🏃",
     value: "A first-generation immigrant",
     description:
-      "Born in the wild suburbs of southern China, I grew up with crop fields on rolling hills, rivers and waters. Although I witnessed rapid urbanization, it wasn’t until much later in my adolescence that I ever imagined moving to another country. I miss the golden, miraculous years of openness and progress. When I moved to Canada, I didn’t think much about the future — I just wanted to explore, to wonder...",
+      "Born in the wild suburbs of southern China, I grew up with crop fields on rolling hills, rivers and waters, although I witnessed rapid urbanization. It wasn’t until much later in my adolescence that I ever imagined moving to another country. I miss the golden, miraculous years of openness and progress. When I moved to Canada, I didn’t think much about the future — I just wanted to explore, to wonder...",
   },
   {
     emoji: "🎾",
