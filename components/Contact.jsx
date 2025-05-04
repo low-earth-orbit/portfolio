@@ -7,7 +7,7 @@ import {
 
 export default function Contact() {
   return (
-    <div className="mx-4 lg:mx-auto my-20 max-w-[1024px] content-center">
+    <div className="mx-4 lg:mx-auto my-20 max-w-[980px] content-center">
       <Title order={2} id="contact">
         let’s connect
       </Title>
