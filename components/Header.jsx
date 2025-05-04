@@ -9,11 +9,7 @@ const links = [
 
 export default function Header() {
   const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-    >
+    <a key={link.label} href={link.link} className={classes.link}>
       {link.label}
     </a>
   ));
