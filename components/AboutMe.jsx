@@ -12,7 +12,7 @@ const groceries = [
     emoji: "🛤️",
     value: "My journey to technology",
     description:
-      "I’ve lived in three Canadian provinces, and before becoming a software developer, I briefly worked as a surveyor on land development projects in Southern Ontario. I returned to school at the University of New Brunswick, originally with the goal of becoming a licensed Land Surveyor or Professional Engineer. Along the way, I discovered how deeply programming was shaping the world of future engineering. To name a few, engineering design software, geographic information systems, navigation satellite system algorithms. Understood this, I enrolled in a few computer science courses. Just enough to earn a minor, I initially thought. But that curiosity about knowledge turned into something more. It led me to try out internships with two local tech companies, and then I gladly returned to one of them after graduation.",
+      "Before becoming a software developer, I briefly worked as a surveyor on land development projects in Southern Ontario. I returned to school at the University of New Brunswick, originally with the goal of becoming a licensed Land Surveyor or Professional Engineer. Along the way, I discovered how deeply programming was shaping the world of future engineering. To name a few, engineering design software, geographic information systems, and navigation satellite system algorithms. Understood this, I enrolled in a few computer science courses. Just enough to earn a minor, I initially thought. But that curiosity about knowledge turned into something more. It led me to try out internships with two local tech companies, and then I gladly returned to one of them after graduation.",
   },
   {
     emoji: "🏃",
