@@ -1,8 +1,14 @@
-@tailwind base;
+@import "@mantine/core/styles.css";
+
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer tailwind {
+  @tailwind base;
+}
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,8 +18,20 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+:root,
+[data-mantine-color-scheme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
+[data-mantine-color-scheme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* 
 body {
   color: var(--foreground);
   background: var(--background);
@@ -24,4 +42,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
