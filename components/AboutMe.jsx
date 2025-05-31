@@ -1,18 +1,18 @@
 import classes from "./AboutMe.module.css";
 import { Accordion, Title, Text } from "@mantine/core";
 
-const groceries = [
+const accordionItems = [
   {
     emoji: "🤟",
     value: "My tech stack",
     description:
-      "Technologies I use for web development include JavaScript/TypeScript, React, Redux, Next.js, Node.js/Express, GraphQL, DynamoDB, PostgreSQL, Amazon Web Services and more. In addition to web development, I am currently learning artificial intelligence, distributed systems, and cloud computing.",
+      "As a web developer, I use JavaScript/TypeScript, React, Redux, Next.js, Node.js/Express, GraphQL, DynamoDB, PostgreSQL, Amazon Web Services and more. In addition to web development, I am currently learning AI, distributed systems, and cloud computing.",
   },
   {
     emoji: "🛤️",
     value: "My journey to technology",
     description:
-      "Before becoming a software developer, I briefly worked as a surveyor on land development projects in Southern Ontario. I returned to school at the University of New Brunswick, originally with the goal of becoming a licensed Land Surveyor or Professional Engineer. Along the way, I discovered how deeply programming was shaping the world of future engineering. To name a few, engineering design software, geographic information systems, and navigation satellite system algorithms. Understood this, I enrolled in a few computer science courses. Just enough to earn a minor, I initially thought. But that curiosity about knowledge turned into something more. It led me to try out internships with two local tech companies, and then I gladly returned to one of them after graduation.",
+      "Before becoming a software developer, I briefly worked as a surveyor on land development projects in Southern Ontario. I returned to school at the University of New Brunswick, originally with the goal of becoming a licensed Land Surveyor/Professional Engineer. Understood how deeply programming was shaping the world of future engineering, I enrolled in a few computer science courses. Just enough to earn a minor, I initially thought. But that curiosity turned into something more. It led me to try out internships with two local tech companies, and then I gladly returned to one of them after graduation.",
   },
   {
     emoji: "🏃",
@@ -29,7 +29,7 @@ const groceries = [
 ];
 
 export default function Intro() {
-  const items = groceries.map((item) => (
+  const items = accordionItems.map((item) => (
     <Accordion.Item key={item.value} value={item.value}>
       <Accordion.Control icon={item.emoji}>{item.value}</Accordion.Control>
       <Accordion.Panel>{item.description}</Accordion.Panel>
@@ -39,7 +39,7 @@ export default function Intro() {
   return (
     <div className="mx-4 lg:mx-auto my-20 max-w-[980px] content-center">
       <Title order={2} id="about-me">
-        about me
+        About me
       </Title>
       <div className="my-4">
         <Text size="xl">
