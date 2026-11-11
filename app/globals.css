@@ -1,0 +1,264 @@
+@import "tailwindcss";
+
+/* Dark mode is toggled with a `.dark` class on <html> (see ThemeToggle and the
+   inline script in layout.tsx), defaulting to the visitor's OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens.
+ * Page-level colours live on :root / .dark. Each bento card also gets a "tone"
+ * (see `.tone-*` below) that sets --tone-bg / --tone-fg / --tone-muted, so any
+ * child can use `text-tone-muted`, `bg-tone-fg/10` etc. and recolour with it.
+ * Every text pairing here meets WCAG AA (4.5:1).
+ */
+:root {
+  color-scheme: light;
+
+  --background: #eef1f6;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --muted-foreground: #475569;
+  --border: #dbe1ea;
+  --accent: #e2e8f0;
+  --accent-foreground: #0f172a;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --dot: #2f5bea; /* timeline dots, focus ring, link underline */
+  --ring: #2f5bea;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #0a0e16;
+  --foreground: #f1f5f9;
+  --card: #141b27;
+  --muted-foreground: #a3b1c6;
+  --border: #243044;
+  --accent: #1e2735;
+  --accent-foreground: #f1f5f9;
+  --primary: #f1f5f9;
+  --primary-foreground: #0f172a;
+  --dot: #7fa2ff;
+  --ring: #7fa2ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-dot: var(--dot);
+  --color-ring: var(--ring);
+
+  --color-tone-bg: var(--tone-bg);
+  --color-tone-fg: var(--tone-fg);
+  --color-tone-muted: var(--tone-muted);
+
+  /* --font-dm-sans is set by next/font in layout.tsx */
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--dot) 25%, transparent);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    ::before,
+    ::after {
+      animation-delay: 0s !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ---- Motion ---------------------------------------------------------------
+ * Everything here is switched off by the prefers-reduced-motion rule in the
+ * base layer (durations collapse to ~0, so elements just land in their final
+ * state).
+ */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* One keyframe for both orientations (the direction comes from --line-from), so
+   crossing a breakpoint never swaps the animation and restarts it. */
+@keyframes line-draw {
+  from {
+    scale: var(--line-from, 1 0);
+  }
+}
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@layer components {
+  /* Cards rise in on load, one after another. Pure CSS, so there is no
+     waiting on JavaScript and nothing is hidden if it fails. */
+  .bento > * {
+    animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+  .bento > :nth-child(2) { animation-delay: 60ms; }
+  .bento > :nth-child(3) { animation-delay: 120ms; }
+  .bento > :nth-child(4) { animation-delay: 180ms; }
+  .bento > :nth-child(5) { animation-delay: 240ms; }
+  .bento > :nth-child(6) { animation-delay: 300ms; }
+  .bento > :nth-child(7) { animation-delay: 360ms; }
+  .bento > :nth-child(8) { animation-delay: 420ms; }
+
+  /* "Road to tech": dots pop and connectors grow in sequence. By default they
+     simply play on load. If the card starts below the fold, BentoGrid marks it
+     data-wait to hold the sequence back, then data-in when it scrolls into
+     view. If JavaScript never runs, nothing is held back and nothing is hidden. */
+  .route-dot {
+    animation: pop 0.45s cubic-bezier(0.3, 1.6, 0.5, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 140ms);
+  }
+  .route-line {
+    --line-from: 1 0;
+    transform-origin: top;
+    animation: line-draw 0.5s ease-out backwards;
+    animation-delay: calc(var(--i, 0) * 140ms + 120ms);
+  }
+  @media (min-width: 1024px) {
+    .route-line {
+      --line-from: 0 1;
+      transform-origin: left;
+    }
+  }
+  [data-reveal][data-wait]:not([data-in]) :is(.route-dot, .route-line) {
+    animation: none;
+    opacity: 0;
+  }
+
+  /* Location card rings gently breathe, each slightly out of step. */
+  .ring-pulse {
+    transform-origin: 300px 130px;
+    animation: breathe 7s ease-in-out infinite;
+  }
+}
+
+@layer components {
+  /* The one content column used by header, grid and footer. */
+  .page-width {
+    @apply mx-auto w-full max-w-[1280px] px-4 sm:px-8 lg:px-12;
+  }
+
+  /* Inline text link: quiet underline that picks up the accent on hover. */
+  .link {
+    @apply underline decoration-dot/40 underline-offset-4 transition-colors hover:decoration-dot;
+  }
+
+  /* Card tones. */
+  .tone-surface {
+    --tone-bg: var(--card);
+    --tone-fg: var(--foreground);
+    --tone-muted: var(--muted-foreground);
+  }
+  .tone-blue {
+    --tone-bg: #dce7ff;
+    --tone-fg: #12306f;
+    --tone-muted: #31498a;
+  }
+  .tone-peach {
+    --tone-bg: #ffe3d4;
+    --tone-fg: #6b2a0c;
+    --tone-muted: #8a4120;
+  }
+  .tone-mint {
+    --tone-bg: #d3f2e2;
+    --tone-fg: #0b4f34;
+    --tone-muted: #25694b;
+  }
+  .tone-lilac {
+    --tone-bg: #e7e0ff;
+    --tone-fg: #35208a;
+    --tone-muted: #53409f;
+  }
+  .tone-inverse {
+    --tone-bg: #0f172a;
+    --tone-fg: #f8fafc;
+    --tone-muted: #b6c2d6;
+  }
+
+  .dark .tone-blue {
+    --tone-bg: #14264f;
+    --tone-fg: #d6e3ff;
+    --tone-muted: #a9bee8;
+  }
+  .dark .tone-peach {
+    --tone-bg: #3a1d10;
+    --tone-fg: #ffd9c5;
+    --tone-muted: #e7b79d;
+  }
+  .dark .tone-mint {
+    --tone-bg: #0e3626;
+    --tone-fg: #cdefdd;
+    --tone-muted: #9cd0b6;
+  }
+  .dark .tone-lilac {
+    --tone-bg: #281f55;
+    --tone-fg: #e3dcff;
+    --tone-muted: #bfb3ee;
+  }
+  .dark .tone-inverse {
+    --tone-bg: #f1f5f9;
+    --tone-fg: #0f172a;
+    --tone-muted: #334155;
+  }
+}
