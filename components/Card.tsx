@@ -6,8 +6,6 @@ const tones = {
   surface: "tone-surface",
   blue: "tone-blue",
   peach: "tone-peach",
-  mint: "tone-mint",
-  lilac: "tone-lilac",
   inverse: "tone-inverse",
 } as const;
 
@@ -34,7 +32,7 @@ export function CardLabel({
     <Tag
       id={id}
       className={cn(
-        "text-[13px] font-bold uppercase tracking-[0.12em] text-tone-muted",
+        "text-[13px] font-semibold uppercase tracking-[0.12em] text-tone-muted",
         className,
       )}
     >

@@ -159,7 +159,6 @@
   .bento > :nth-child(5) { animation-delay: 240ms; }
   .bento > :nth-child(6) { animation-delay: 300ms; }
   .bento > :nth-child(7) { animation-delay: 360ms; }
-  .bento > :nth-child(8) { animation-delay: 420ms; }
 
   /* "Road to tech": dots pop and connectors grow in sequence. By default they
      simply play on load. If the card starts below the fold, BentoGrid marks it
@@ -220,16 +219,6 @@
     --tone-fg: #6b2a0c;
     --tone-muted: #8a4120;
   }
-  .tone-mint {
-    --tone-bg: #d3f2e2;
-    --tone-fg: #0b4f34;
-    --tone-muted: #25694b;
-  }
-  .tone-lilac {
-    --tone-bg: #e7e0ff;
-    --tone-fg: #35208a;
-    --tone-muted: #53409f;
-  }
   .tone-inverse {
     --tone-bg: #0f172a;
     --tone-fg: #f8fafc;
@@ -246,19 +235,11 @@
     --tone-fg: #ffd9c5;
     --tone-muted: #e7b79d;
   }
-  .dark .tone-mint {
-    --tone-bg: #0e3626;
-    --tone-fg: #cdefdd;
-    --tone-muted: #9cd0b6;
-  }
-  .dark .tone-lilac {
-    --tone-bg: #281f55;
-    --tone-fg: #e3dcff;
-    --tone-muted: #bfb3ee;
-  }
+  /* In dark mode "inverse" is a raised surface, not a white block: a bright
+     card would outshine everything else on the page. */
   .dark .tone-inverse {
-    --tone-bg: #f1f5f9;
-    --tone-fg: #0f172a;
-    --tone-muted: #334155;
+    --tone-bg: #263247;
+    --tone-fg: #f1f5f9;
+    --tone-muted: #b6c2d6;
   }
 }

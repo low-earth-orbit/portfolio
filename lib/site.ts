@@ -37,6 +37,19 @@ const offHours: readonly OffHoursItem[] = [
   { label: "Calligraphy", icon: "calligraphy" },
 ];
 
+export type ProjectLink = {
+  name: string;
+  url: string;
+};
+
+/** Live sites to link from the home page. */
+const projects: readonly ProjectLink[] = [
+  {
+    name: "Personal finance tools",
+    url: "https://personal-finance-tools.leohong.dev/",
+  },
+];
+
 /** All the words on the page. Edit copy here; layout lives in components/Bento.tsx. */
 export const content = {
   /** Small label above the greeting. */
@@ -51,7 +64,7 @@ export const content = {
     learning: "Learning now",
     route: "Road to tech",
     offHours: "Away from the keyboard",
-    contact: "Let’s connect.",
+    projects: "Projects",
   },
 
   /** Front end first, then back end and cloud, then how I work. */
@@ -78,6 +91,8 @@ export const content = {
     "Back to one of them after graduating",
   ],
   offHours,
+  projects,
+  /** Shown in the footer; "LinkedIn" and "GitHub" become links. */
   contact:
     "I’m not looking for freelance work or a new role right now, but you’re welcome to connect on LinkedIn or GitHub.",
 } as const;
