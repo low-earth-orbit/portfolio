@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import rehypeShiki from "@shikijs/rehype";
+import type { Element, Root } from "hast";
 import matter from "gray-matter";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
@@ -62,6 +63,26 @@ export function getAllPosts(): PostMeta[] {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
+/** Open external links in a new tab without leaking the referrer. */
+function externalLinksNewTab() {
+  return (tree: Root) => {
+    const visit = (node: Root | Element) => {
+      if (
+        node.type === "element" &&
+        node.tagName === "a" &&
+        /^https?:\/\//.test(String(node.properties.href ?? ""))
+      ) {
+        node.properties.target = "_blank";
+        node.properties.rel = ["noopener", "noreferrer"];
+      }
+      for (const child of node.children) {
+        if (child.type === "element") visit(child);
+      }
+    };
+    visit(tree);
+  };
+}
+
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
@@ -74,6 +95,7 @@ const processor = unified()
     defaultColor: false,
     fallbackLanguage: "text",
   })
+  .use(externalLinksNewTab)
   .use(rehypeStringify);
 
 export async function getPost(slug: string): Promise<Post> {

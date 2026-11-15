@@ -2,12 +2,30 @@ import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import JsonLd from "@/components/JsonLd";
 import Section from "@/components/Section";
 import { content, site } from "@/lib/site";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: content.role,
+  description: site.description,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.city,
+    addressCountry: site.country,
+  },
+  knowsAbout: content.stack,
+  sameAs: [site.links.linkedin, site.links.github],
+};
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={personJsonLd} />
       <Header />
       <main id="main" className="page-column">
         <Hero />

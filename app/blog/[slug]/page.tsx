@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
 import { formatDate, getAllPosts, getPost } from "@/lib/posts";
 import { site } from "@/lib/site";
 
@@ -44,9 +45,22 @@ export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   if (slug === PLACEHOLDER) notFound();
   const post = await getPost(slug);
+  const url = `${site.url}/blog/${slug}`;
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.description,
+          datePublished: post.date,
+          url,
+          mainEntityOfPage: url,
+          author: { "@type": "Person", name: site.name, url: site.url },
+        }}
+      />
       <Header />
       <main id="main" className="page-column pb-12 pt-6 sm:pt-12">
         <article>
